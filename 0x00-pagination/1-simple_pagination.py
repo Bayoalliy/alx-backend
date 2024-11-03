@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""
+This modue defines class that paginates a database.
+"""
 import csv
 import math
 from typing import List
