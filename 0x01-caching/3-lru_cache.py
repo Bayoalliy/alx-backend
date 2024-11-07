@@ -24,7 +24,6 @@ class LRUCache(BaseCaching):
             least = least_w[0]
             for k in list(self.acces.keys())[:-1]:
                 if self.acces.get(k) == least:
-                    print(self.acces)
                     print("DISCARD: {}".format(k))
                     del(self.cache_data[k])
                     del(self.acces[k])
