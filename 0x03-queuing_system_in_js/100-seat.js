@@ -9,7 +9,7 @@ const client = createClient();
 client
   .on('connect', () => {
     console.log("Redis client connected to the server");
-    client.set('available_seats', 5, (err, val) => {
+    client.set('available_seats', 50, (err, val) => {
       if (err) {
         console.error("Cannot set value:", err);
       }
@@ -76,7 +76,6 @@ app.get('/process', async (req, res) => {
   res.json({"status":"Queue processing"});
   queue.process('reserve_seat', 1, async (job, done) => {
     const availableSeat = await getCurrentAvailableSeats();
-    console.log(availableSeat)
     if (availableSeat > 0) {
       reserveSeat(availableSeat - 1);
       done();
